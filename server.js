@@ -68,9 +68,10 @@ function limited(req) {
 }
 const files = {
   '/UHS': 'index.html', '/UHS/': 'index.html',
-  '/UHS/styles.css': 'styles.css', '/UHS/app.js': 'app.js'
+  '/UHS/styles.css': 'styles.css', '/UHS/app.js': 'app.js',
+  '/UHS/uhs-welcome.png': 'uhs-welcome.png'
 };
-const mimetypes = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'application/javascript; charset=utf-8' };
+const mimetypes = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'application/javascript; charset=utf-8', '.png':'image/png' };
 const server = http.createServer(async (req, res) => {
   try {
     const pathname = new URL(req.url, 'http://localhost').pathname;

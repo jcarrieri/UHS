@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UHS | Universal Healthcare Social</title><link rel="stylesheet" href="/UHS/styles.css"></head>
+<body>
+<section id="splash" class="splash-page" aria-label="Welcome to Universal Healthcare Social">
+  <div class="splash-image-wrap">
+    <img class="splash-image" src="/UHS/uhs-welcome.png" alt="Universal Healthcare Social. Welcome to UHS. A place to seriously discuss universal healthcare. Universal healthcare is going to happen soon. A diverse community of healthcare workers and neighbors." width="1672" height="941">
+    <a class="splash-hit enter-hit" href="/UHS/?view=account" aria-label="Enter UHS registration and login"><span class="screen-reader-only">Enter UHS</span></a>
+    <a class="splash-hit learn-hit" href="/UHS/?view=learn" aria-label="Learn more about Universal Healthcare Social"><span class="screen-reader-only">Learn more</span></a>
+  </div>
+  <div class="splash-mobile-actions"><p>Welcome to UHS — a place to seriously discuss universal healthcare.</p><a class="splash-button" href="/UHS/?view=account">Enter UHS</a><a class="splash-button secondary" href="/UHS/?view=learn">Learn More</a></div>
+</section>
+<section id="learn" class="learn-page" hidden><div class="learn-card"><div class="brand learn-brand"><span class="brandmark">✚</span> UHS</div><h1>Welcome to Universal Healthcare Social</h1><p>UHS is a free community for serious, respectful discussions about universal healthcare, how it works, and how to make healthcare accessible to everyone.</p><p>Members can follow people they choose, participate in healthcare-related conversations, and explore a broad range of topics, including public policy, economics and healthcare systems.</p><p>We believe universal healthcare is coming soon. Here you can exchange ideas, discuss evidence, and work toward better healthcare for all.</p><p><strong>Always free. No ads. No algorithmic posts from people you do not follow.</strong></p><a class="splash-button" href="/UHS/?view=account">Enter UHS</a><a class="back-link" href="/UHS/">← Back to welcome</a></div></section>
+<div class="layout" id="account-layout" hidden>
+  <section class="intro">
+    <div class="brand"><span class="brandmark">✚</span><span>UHS</span></div>
+    <p class="eyebrow">UNIVERSAL HEALTHCARE SOCIAL</p>
+    <h1>Healthcare is<br><em>everyone's</em> conversation.</h1>
+    <p class="introcopy">Connect with people. Share ideas. Build a community committed to better healthcare for all.</p>
+    <div class="pill"><span class="dot"></span> Always free · No advertising · Follow who you choose</div>
+    <div class="foot">truth-party.com/UHS</div>
+  </section>
+  <main class="main">
+    <section id="auth" class="panel"><a class="back-link" href="/UHS/">← Back to welcome</a>
+      <div class="overline">WELCOME TO UHS</div>
+      <h2 id="form-title">Create your account</h2>
+      <p id="form-subtitle" class="subtitle">Join the conversation. It only takes a moment.</p>
+      <div class="tabs" role="tablist" aria-label="Account access"><button id="register-tab" class="tab active" role="tab" aria-selected="true">Create account</button><button id="login-tab" class="tab" role="tab" aria-selected="false">Log in</button></div>
+      <form id="form" novalidate>
+        <div id="name-field" class="field"><label for="name">Display name</label><input id="name" name="name" autocomplete="nickname" minlength="2" maxlength="60" placeholder="How should we call you?"></div>
+        <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+        <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 12 characters" required minlength="12"></div>
+        <div id="confirm-field" class="field"><label for="confirm">Confirm password</label><input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat your password"></div>
+        <p id="id-info" class="hint">Your permanent numeric Member ID will be assigned automatically, beginning at <strong>1000</strong>. You cannot choose or change it.</p>
+        <div id="error" class="alert" role="alert" hidden></div>
+        <button id="submit" class="primary" type="submit">Create my account <span>→</span></button>
+      </form>
+      <p class="legal">By registering, you agree to respectful, healthcare-related discussion. <strong>Prototype:</strong> email verification and password recovery are not yet implemented.</p>
+    </section>
+    <section id="account" class="panel" hidden>
+      <div class="overline">ACCOUNT CREATED / SIGNED IN</div><h2>Welcome to UHS!</h2>
+      <p class="subtitle">Your account is ready for testing.</p>
+      <div class="membercard"><span>YOUR MEMBER ID</span><strong id="account-id">1000</strong><small>Permanent · Integer · Automatically assigned</small></div>
+      <dl><div><dt>Display name</dt><dd id="account-name"></dd></div><div><dt>Email</dt><dd id="account-email"></dd></div></dl>
+      <p class="hint">Next development stage: Following feed and member profiles. For now, this is the account test screen.</p>
+      <button id="logout" class="primary">Log out <span>→</span></button>
+    </section>
+  </main>
+</div>
+<script src="/UHS/app.js" defer></script>
+</body></html>

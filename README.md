@@ -1,19 +1,27 @@
-# UHS V0.2 — GitHub + Render Preview
+# UHS V0.3 — Welcome Splash Screen + Render Preview
 
-## Publish the source
-Create a new GitHub repository (e.g. `uhs-social`). Upload the **contents of this folder** to the repository root, not the enclosing folder. Keep the repository private if possible. Never upload `data/accounts.json`.
+This update adds the newly designed **Universal Healthcare Social** splash screen at `/UHS/`, with two working navigation areas on the illustration:
 
-## Connect Render
-Create a new Render **Web Service**, choose the `uhs-social` GitHub repository. Choose the `main` branch and **Node** runtime. Root Directory: blank. Build Command: `npm install`. Start Command: `npm start`. Health check: `/healthz`. Free instance is sufficient to test the visual preview.
+- **Enter UHS** → `/UHS/?view=account` (existing registration/login preview)
+- **Learn More** → `/UHS/?view=learn` (platform information)
 
-Render allocates its own `PORT`. The server binds `0.0.0.0` by default in preview mode. After Render says Live, open `https://<your-service>.onrender.com/UHS/`.
+On narrow/mobile screens, visible accessible navigation buttons appear beneath the image.
 
-## Critical guardrail
-The Render preview **intentionally disables registration and login**. The original JSON account store is unsuitable for the public Internet or Render's ephemeral filesystem. The preview can display the UI safely, but does not create or retain actual accounts.
+## Deploy with GitHub + Render
 
-For local-only testing on Windows: double-click `START_UHS.bat`. It sets `UHS_LOCAL_ACCOUNTS=1`, enabling test registrations and numeric IDs from 1000. Use test-only passwords.
+1. Extract the ZIP and upload **all files and folders inside** to the **root** of your GitHub `UHS` repository, replacing existing files with the same name. Keep the `public` folder intact.
+2. Commit the changes to the branch connected to your UHS Render Web Service (`main`).
+3. Render should automatically redeploy if automatic deployments are enabled; otherwise click **Manual Deploy → Deploy latest commit**.
+4. Visit `https://YOUR-RENDER-SERVICE.onrender.com/UHS/`. Use your actual Render host.
 
-Before public registration: adopt a permanent transactional database (e.g. PostgreSQL), ensure atomic allocation of member IDs from 1000, add email verification, password reset, secure production session storage, CSRF protection, HTTPS-only cookies, deployment backups, and security review. Do not set `UHS_LOCAL_ACCOUNTS=1` on Render.
+The desired `https://truth-party.com/UHS` URL requires additional routing on your existing domain hosting.
 
-## Custom domain
-`truth-party.com/UHS` requires a path-based reverse proxy or routing configuration on the existing truth-party.com host. Merely adding `truth-party.com` as a Render custom domain would route the whole hostname to Render. Use the temporary `onrender.com/UHS/` URL until the existing domain server is configured.
+## Important: preview only
+
+Public registration and login remain **disabled** by default (unless `UHS_LOCAL_ACCOUNTS=1` is explicitly set, which should be used for LOCAL testing ONLY). This prevents storing real account data on Render's ephemeral filesystem. The durable production database, email verification, and production security remain future work.
+
+Member IDs will start at integer 1000 when permanent account registration is implemented.
+
+## Local test
+
+Run `START_UHS.bat` on Windows with Node.js installed, then visit `http://localhost:8082/UHS/`.
