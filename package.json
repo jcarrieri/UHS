@@ -1,0 +1,8 @@
+{
+  "name": "uhs-accounts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "UHS registration and login starter",
+  "scripts": {"start": "node server.js"},
+  "engines": {"node": ">=20"}
+}
